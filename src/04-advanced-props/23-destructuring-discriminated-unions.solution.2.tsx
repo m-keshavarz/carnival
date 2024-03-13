@@ -17,8 +17,7 @@ export const Modal = (props: ModalProps) => {
   if (props.variant === "no-title") {
     return <div>No title</div>;
   } else {
-    const { title } = props;
-    return <div>Title: {title}</div>;
+    return <div>Title: {props.title}</div>;
   }
 };
 
