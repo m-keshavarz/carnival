@@ -11,12 +11,6 @@
  * Hint - you'll need a discriminated union!
  */
 
-type EmbeddedPlaygroundProps2 = {
-  useStackblitz?: boolean;
-  stackblitzId?: string;
-  codeSandboxId?: string;
-};
-
 type EmbeddedPlaygroundProps =
   | {
       useStackblitz: true;
