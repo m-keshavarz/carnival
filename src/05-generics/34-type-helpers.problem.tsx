@@ -1,7 +1,7 @@
 type Icon = "home" | "settings" | "about";
 type ButtonVariant = "primary" | "secondary" | "tertiary";
 
-type MakeString<T> = T | (string & {});
+type MakeString<T extends string> = T | (string & {});
 
 // How do we refactor this to make it DRY?
 type LooseIcon = MakeString<Icon>;
