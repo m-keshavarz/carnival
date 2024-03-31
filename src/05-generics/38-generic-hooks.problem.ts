@@ -8,8 +8,8 @@ import { Equal, Expect } from "../helpers/type-utils";
  *
  * There are _many_ different solutions - but they all involve generics.
  */
-export const useStateAsObject = (initial: any) => {
-  const [value, set] = useState(initial);
+export const useStateAsObject = <T>(initial: T) => {
+  const [value, set] = useState<T>(initial);
 
   return {
     value,
@@ -17,7 +17,7 @@ export const useStateAsObject = (initial: any) => {
   };
 };
 
-const example = useStateAsObject({ name: "Matt" });
+const example = useStateAsObject<{ name: string }>({ name: "Matt" });
 
 type ExampleTests = [
   Expect<Equal<typeof example.value, { name: string }>>,
@@ -26,12 +26,12 @@ type ExampleTests = [
       typeof example.set,
       React.Dispatch<React.SetStateAction<{ name: string }>>
     >
-  >,
+  >
 ];
 
 const num = useStateAsObject(2);
 
 type NumTests = [
   Expect<Equal<typeof num.value, number>>,
-  Expect<Equal<typeof num.set, React.Dispatch<React.SetStateAction<number>>>>,
+  Expect<Equal<typeof num.set, React.Dispatch<React.SetStateAction<number>>>>
 ];
