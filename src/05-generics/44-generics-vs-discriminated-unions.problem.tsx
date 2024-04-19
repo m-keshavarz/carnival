@@ -14,6 +14,9 @@
  * generics that's much simpler. Try to figure out how to do that.
  */
 
+type Example = ModalProps<'with-button'>;
+type Example2 = ModalProps<'without-button'>;
+
 export type ModalProps<TVariant extends PossibleVariants> = {
   isOpen: boolean;
   variant: TVariant;
